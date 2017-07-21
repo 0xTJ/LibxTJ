@@ -1,13 +1,24 @@
 #include <cmath>
+#include <iostream>
 
-typedef double real;
-typedef double imaginary;
+struct real {
+    explicit real (double _v) : v (_v) {}
+    explicit operator double () const;
+private:
+    double v;
+};
 
-class complex {
-    public :
+struct imaginary {
+    explicit imaginary (double _v) : v (_v) {}
+    explicit operator double () const;
+private:
+    double v;
+};
+
+struct complex {
     real r;
     imaginary i;
     complex () : r (0), i (0) {}
-    complex (real in_r, imaginary in_i) : r (in_r), i (in_i) {}
-    real size () const;
+    complex (double _r, double _i) : r (_r), i (_i) {}
+    double size () const;
 };
